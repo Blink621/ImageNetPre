@@ -69,7 +69,7 @@ for runIndex = 1:run_per_session
         
         imgMat = imread(imgPath);
         imgResize = imresize(imgMat, [imgPixel imgPixel]);
-        response = singleTrial(wptr, fixation_imgMatrix, imgResize);
+        response = singleTrial(wptr, fixation_imgMatrix, imgResize, picName);
         % 调试时使用
         if strcmp(response, 'break')
             break;

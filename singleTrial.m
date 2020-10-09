@@ -1,4 +1,4 @@
-function response = singleTrial(wptr, imgMatrix_Fixation, imgMat)
+function response = singleTrial(wptr, imgMatrix_Fixation, imgMat, picName)
 % Define the keyboard and present images for single trail
 % F - like - 1  J - dislike - 0  None response - -1
 % Note it's the debug version now, which means the onset time will be
@@ -46,11 +46,13 @@ while 1     %等待被试反应
         break;
     end
     
-    % 固定一段时间后图片消失
-%     tt = GetSecs;   %启动计时器
-%     if tt-t0>stimulus_onset
-%         break
-%     end
+    %固定一段时间后图片消失
+    if strcmp(picName, 'NA')
+        tt = GetSecs;   %启动计时器
+        if tt-t0>stimulus_onset
+            break
+        end
+    end
     
 end
 
