@@ -1,2 +1,2 @@
 # ImageNetPre
-# Present ImageNet images for each category and get fMRI signal
+Present ImageNet images for each category and get fMRI signal
