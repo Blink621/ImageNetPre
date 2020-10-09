@@ -1,12 +1,13 @@
 stimulusFolder = 'SelectedImages';
 
 % define columns
-picsFolderName = 'stim';
+picsFolderName = 'stimSameCategory';
 column_sub = 1;
 column_session = 2;
 column_run = 3;
 column_trail = 4;
 column_id = 5;
+trial_per_run = 128;
 
 % load stimulus matrix
 for sub = 1:20
@@ -17,7 +18,7 @@ for sub = 1:20
             matTrail = matrix(matrix{:,column_run}==runIndex, :);
             picAll = matTrail{:,column_id};
             stimAll = cell(trial_per_run,1);
-            % 构建新的刺激design
+            % construct new design
             for trailIndex = 1:120
                 if mod(trailIndex, 6) == 0
                     stimAll{trailIndex+4} = 'NA';
@@ -42,7 +43,6 @@ for sub = 1:20
 %                 imgMat = imread(imgPath);
 %                 imgMatCell{trailIndex} = imgResize;
 %             end
-            
             outPath = sprintf('%s/sub%d/session%d', picsFolderName, sub, session);
             if ~exist(outPath,'dir')
                 mkdir(outPath);

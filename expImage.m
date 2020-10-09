@@ -9,7 +9,7 @@ Screen('Preference','SuppressAllWarnings',1);
 picsFolderName = 'Pics';
 outFolderName = 'out';
 stimulusFolder = 'SelectedImages';
-stimOrderFolder = 'stim';
+stimOrderFolder = 'stimSameCategory';
 column_sub = 1;
 column_session = 2;
 column_run = 3;
@@ -77,7 +77,7 @@ for runIndex = 1:run_per_session
         
         % write response info into table
         tmpArr = [sub session runIndex trailIndex response];
-        tmpLine = sprintf('%d\t%d\t%d\t%d\t%d\t%s', tmpArr, picName);
+        tmpLine = sprintf('%d,%d,%d,%d,%d,%s', tmpArr, picName);
 
         fid = fopen(txtFileName_Result, 'a+');
         fprintf(fid, '%s\r\n', tmpLine);
